@@ -1,5 +1,7 @@
 import { defineConfig } from 'vite'
 import vue from '@vitejs/plugin-vue'
+import path, {join} from 'path'
+import { createSvgIconsPlugin } from 'vite-plugin-svg-icons'
 
 import WindiCSS from 'vite-plugin-windicss'
 
@@ -8,5 +10,27 @@ import WindiCSS from 'vite-plugin-windicss'
 export default defineConfig({
   plugins: [
     WindiCSS(),
-    vue()],
+    vue(),
+  createSvgIconsPlugin({
+    // 指定需要缓存的图标文件
+    iconDirs:[path.resolve(process.cwd(),'src/assets/icons')],
+    // 指定symbolId格式
+    symbolId:'icon-[name]'
+  })],
+    // 软连接
+    resolve:{
+      alias:{
+        '@':join(__dirname,'/src')
+      }
+    },
+    
+    server:{
+      proxy:{
+        '/api': {
+          target: 'https://api.imooc-front.lgdsunday.club',
+          changeOrigin: true,
+         
+        },
+      }
+    }
 })
