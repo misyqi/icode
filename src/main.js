@@ -5,9 +5,13 @@ import router from './router'
 import { useREM } from './utils/flexible'
 import mLibs from './libs'
 import 'virtual:windi.css'
+import store from './store'
+import useTheme from './utils/theme'
 
 // 注册svg-icons
 import 'virtual:svg-icons-register'
 
 useREM()
-createApp(App).use(router).use(mLibs).mount('#app')
+// 初始化主题
+useTheme()
+createApp(App).use(router).use(store).use(mLibs).mount('#app')
