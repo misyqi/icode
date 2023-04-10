@@ -45,6 +45,7 @@ const getHintData = async () => {
 /**
  * 监听搜索文本的变化，并获取对应提示数据
  */
+//防抖
 watchDebounced(() => props.searchText, getHintData, {
   immediate: true,
   // 每次事件触发时，延迟的时间
