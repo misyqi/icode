@@ -8,6 +8,7 @@ import 'virtual:windi.css'
 import store from './store'
 import useTheme from './utils/theme'
 import mDirective from './directives'
+import './permission'
 
 // 注册svg-icons
 import 'virtual:svg-icons-register'

@@ -21,7 +21,7 @@
     <!-- pc 端下展示关闭图标 -->
     <m-svg-icon
       v-else
-      name="close"
+      name="close"3
       class="w-3 h-3 ml-1 p-0.5 cursor-pointer duration-200 rounded-sm hover:bg-zinc-100 absolute right-2 top-2"
       fillClass="fill-zinc-400"
       @click="onPop"
